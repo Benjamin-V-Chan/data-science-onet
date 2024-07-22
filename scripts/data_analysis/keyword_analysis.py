@@ -39,7 +39,8 @@ def analyze_keywords(keyword_df, condensed_df):
 
     return keyword_counts
 
-def plot_keyword_counts(keyword_counts):
+def plot_keyword_counts(keyword_counts, output_dir):
+    os.makedirs(output_dir, exist_ok=True)
     for keyword, counts in keyword_counts.items():
         plt.figure(figsize=(10, 6))
         plt.bar(counts.keys(), counts.values())
@@ -48,12 +49,15 @@ def plot_keyword_counts(keyword_counts):
         plt.ylabel('Count')
         plt.xticks(rotation=90)
         plt.tight_layout()
-        plt.show()
+        output_path = os.path.join(output_dir, f"{keyword}_keyword_counts.png")
+        plt.savefig(output_path)
+        plt.close()
 
 def main():
     keyword_csv_path = '../../data/processed/keyword_search_results.csv'
     condensed_csv_path = '../../data/processed/condensed_job_details.csv'
     output_csv_path = '../../data/results/keyword_analysis_results.csv'
+    output_dir = '../../data/results/'
 
     keyword_df = load_data(keyword_csv_path)
     condensed_df = load_data(condensed_csv_path)
@@ -69,7 +73,7 @@ def main():
     analysis_df.to_csv(output_csv_path, index=True)
     print(f"Keyword analysis results saved to {output_csv_path}")
 
-    plot_keyword_counts(keyword_counts)
+    plot_keyword_counts(keyword_counts, output_dir)
 
 if __name__ == "__main__":
     main()
