@@ -7,21 +7,17 @@ from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 from collections import Counter
 
-# Ensure the data directory exists
 data_dir = '../../data/raw'
 os.makedirs(data_dir, exist_ok=True)
 
-# Path to the keyword search results CSV
 csv_path = os.path.join(data_dir, 'keyword_search_results.csv')
 
-# Load the data
 try:
     data = pd.read_csv(csv_path)
 except FileNotFoundError:
     print(f"File not found: {csv_path}")
     exit()
 
-# Inspect the data
 print(data.head())
 print(data.info())
 

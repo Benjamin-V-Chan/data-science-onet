@@ -9,6 +9,7 @@ def load_data(file_path):
         print(f"File not found: {file_path}")
         return None
 
+# Count Keyword Occurrences
 def count_keyword_occurrences(df_condensed, keyword, occupation_code):
     counts = {}
     row = df_condensed[df_condensed['occupation_code'] == occupation_code]
@@ -25,6 +26,7 @@ def count_keyword_occurrences(df_condensed, keyword, occupation_code):
 
     return counts
 
+# Keyword Analysis
 def analyze_keywords(keyword_df, condensed_df):
     keyword_counts = {}
     
@@ -39,6 +41,7 @@ def analyze_keywords(keyword_df, condensed_df):
 
     return keyword_counts
 
+# Keyword Counts Visualization
 def plot_keyword_counts(keyword_counts, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     for keyword, counts in keyword_counts.items():
