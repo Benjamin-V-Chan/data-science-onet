@@ -1,4 +1,4 @@
-# ONET-Data-Analysis
+# data-science-onet
 
 ## Introduction
 ONET-Data-Analysis focuses on performing EDA on the data collected from the O*NET API. This project helps to understand the quality and consistency of the data and provides insights that inform the development of career recommendation systems.
