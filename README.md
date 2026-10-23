@@ -10,6 +10,19 @@ and turns them into diagnostics and interpretable structure:
 
 Everything is packaged as `onet_analysis` with a single `onet-analyze` CLI.
 
+## Background
+
+This project was originally built in 2024 as an open-source edtech tool for
+analyzing O*NET occupational data at scale, and as part of my capstone project
+for an engineering course. Its analytics pipeline (EDA, occupation clustering,
+and keyword attribution) was later integrated into production products at
+**Project Leo**, and has inspired related work at other companies and projects.
+
+Since its original release, the project has been refined and modernized into a
+packaged, tested Python library with a unified CLI.
+
+---
+
 ---
 
 ## How it fits together
